@@ -1,0 +1,17 @@
+.problem-card {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #ddd;
+    gap: 20px;
+}
+.problem-card span:first-child {
+    width: 40px;
+}
+.problem-card h3 {
+    flex: 1;
+    margin: 0;
+}
+.problem-card span {
+    min-width: 100px;
+}

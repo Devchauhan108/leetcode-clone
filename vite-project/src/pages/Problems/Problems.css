@@ -1,0 +1,24 @@
+.problems-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.problems-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    gap: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.problems-header span:first-child {
+    width: 40px;
+}
+
+.problems-header h3 {
+    flex: 1;
+    margin: 0;
+}
+
+.problems-header span {
+    min-width: 100px;
+}
