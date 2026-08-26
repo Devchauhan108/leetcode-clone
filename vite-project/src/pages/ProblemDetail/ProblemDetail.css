@@ -1,70 +1,101 @@
 .problem-detail {
     display: flex;
     gap: 30px;
+    width: 100%;
     max-width: 1400px;
     margin: 30px auto;
     padding: 20px;
+    box-sizing: border-box;
 }
+.problem-content {
+    flex: 1 1 0;
+    min-width: 0;
+}
+.code-section {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 500px;
 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+}
 .problem-detail h1 {
     margin-bottom: 10px;
 }
-
 .problem-detail h2 {
     margin-top: 30px;
     margin-bottom: 10px;
 }
-
 .example {
     padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 6px;
 }
-
-.problem-content {
-    flex: 1;
-}
-
-.code-section {
-    flex: 1;
-    min-height: 500px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-}
-
 .editor-header {
     padding: 12px 16px;
     border-bottom: 1px solid #ddd;
 }
+.code-area {
+    display: flex;
+    width: 100%;
+    text-align: left;
+}
+.line-numbers {
+    width: 40px;
+    flex-shrink: 0;
 
-.code-area pre {
-    margin: 0;
+    padding-top: 12px;
+    padding-right: 10px;
+
+    text-align: right;
+
     font-family: monospace;
+    font-size: 14px;
     line-height: 1.6;
 }
 
-.code-area code {
-    display: block;
+/* TEXTAREA */
+.code-area textarea {
+    flex: 1;
+    width: 0;
+    min-height: 450px;
+
+    padding: 12px;
+
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.6;
+
+    border: none;
+    outline: none;
+    resize: none;
+
+    box-sizing: border-box;
 }
 
-.code-line {
-    display: block !important;
+/* BUTTONS */
+.editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 12px 0;
+}
+.editor-actions button {
+    padding: 8px 18px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.input-section {
+    margin-top: 15px;
+}
+.input-section textarea {
     width: 100%;
-    white-space: pre;
-}
-
-.line-number {
-    display: inline-block;
-    width: 30px;
-    margin-right: 16px;
-    text-align: right;
-}
-
-.line-code {
-    white-space: pre;
-}
-.code-area {
-    text-align: left;
+    min-height: 80px;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: vertical;
 }
