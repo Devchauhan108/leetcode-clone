@@ -1,0 +1,39 @@
+.problems-header {
+    display: grid;
+    grid-template-columns: 60px 1fr 120px 120px;
+    padding: 15px;
+    align-items: center;
+}
+
+.problem-card {
+    display: grid;
+    grid-template-columns: 60px 1fr 120px 120px;
+    padding: 15px;
+    align-items: center;
+    border-top: 1px solid #ddd;
+}
+
+.problem-card a {
+    text-decoration: none;
+    color: #262626;
+}
+
+.problem-card h3 {
+    margin: 0;
+}
+
+.problem-card:hover {
+    background-color: #f7f7f7;
+}
+
+.easy {
+    color: green;
+}
+
+.medium {
+    color: orange;
+}
+
+.hard {
+    color: red;
+}

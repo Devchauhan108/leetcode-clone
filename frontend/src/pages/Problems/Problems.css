@@ -1,0 +1,21 @@
+.problems-container {
+    width: 100%;
+}
+.problems-header {
+    display: grid;
+    grid-template-columns: 60px 1fr 120px 120px;
+    padding: 15px;
+    align-items: center;
+}
+.problems-header span:first-child {
+    width: 40px;
+}
+
+.problems-header h3 {
+    flex: 1;
+    margin: 0;
+}
+
+.problems-header span {
+    min-width: 100px;
+}
