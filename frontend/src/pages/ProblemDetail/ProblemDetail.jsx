@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import problems from "../../data/problems";
@@ -16,39 +15,38 @@ function ProblemDetail() {
         "    }",
         "}"
     ];
+    const [results, setResults] = useState([]);
     const [code, setCode] = useState(codeLines.join("\n"));
     const [output, setOutput] = useState("");
     const [status, setStatus] = useState("");
-   const handleRun = async () => {
-    try {
-        const response = await axios.post(
-            "http://localhost:5000/run",
-            {
-                code: code,
-                testCases: problem.testCases,
-            }
-        );
-        setOutput(response.data.output);
-
-    } catch (error) {
-        setOutput("Server error");
-    }
-};
-    const handleSubmit = () => {
-        const testInput = [2, 7, 11, 15];
-        const testTarget = 9;
-        let answer = [];
-        for (let i = 0; i < testInput.length; i++) {
-            for (let j = i + 1; j < testInput.length; j++) {
-                if (testInput[i] + testInput[j] === testTarget) {
-                    answer = [i, j];
+    const handleRun = async () => {
+        try {
+            const response = await axios.post(
+                "http://localhost:5000/run",
+                {
+                    code: code,
+                    testCases: problem.testCases,
                 }
-            }
+            );
+            setOutput(response.data.output);
+        } catch (error) {
+            setOutput("Server error");
         }
-        if (answer.length > 0) {
-            setStatus("Accepted");
-        } else {
-            setStatus("Wrong Answer");
+    };
+    const handleSubmit = async () => {
+        try {
+            const response = await axios.post(
+                "http://localhost:5000/submit",
+                {
+                    code: code,
+                    testCases: problem.testCases
+                }
+            );
+            setStatus(response.data.status);
+            setResults(response.data.results);
+        } catch (error) {
+            setStatus("Server Error");
+            setOutput("Unable to connect to server");
         }
     };
     return (
@@ -66,16 +64,34 @@ function ProblemDetail() {
                             <h3>Example {index + 1}</h3>
                             <p>input: {example.input}</p>
                             <p>output: {example.output}</p>
-                        </div>
+                      </div>
                     );
                 })}
+                {results.map((result) => (
+                    <div key={result.testCase}>
+                        <h3>
+                            Test Case {result.testCase}
+                        </h3>
+                        <p>
+                            Expected: {result.expected}
+                        </p>
+                        <p>
+                            Your Output: {result.actual}
+                        </p>
+                        <p>
+                            {result.passed
+                                ? "✅ Passed"
+                                : "❌ Failed"}
+                        </p>
+                    </div>
+                ))}
                 <h2>Constraints</h2>
                 <ul>
                     {problem.constraints.map((constraint, index) => {
                         return (
                             <li key={index}>
                                 {constraint}
-                            </li>
+                           </li>
                         );
                     })}
                 </ul>
@@ -109,7 +125,7 @@ function ProblemDetail() {
                 </div>
                 {status && (
                     <div className="status-section">
-                        <h3>{status}</h3>npm run dev
+                        <h3>{status}</h3>
                     </div>
                 )}
                 {output && (
@@ -123,4 +139,3 @@ function ProblemDetail() {
     );
 }
 export default ProblemDetail;
-
