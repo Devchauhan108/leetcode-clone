@@ -1,135 +1,412 @@
+/* =========================
+   MAIN PAGE
+========================= */
+
 .problem-detail {
     display: flex;
-    gap: 30px;
-    width: 100%;
-    max-width: 1400px;
-    margin: 30px auto;
-    padding: 20px;
-    box-sizing: border-box;
-}
-.problem-content {
-    flex: 1 1 0;
-    min-width: 0;
-}
-.code-section {
-    flex: 1 1 0;
-    min-width: 0;
-    min-height: 500px;
+    gap: 8px;
 
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
+    width: 100%;
+    height: 100vh;
+
+    margin: 0;
+    padding: 8px;
+
     box-sizing: border-box;
+
+    background: #1a1a1a;
 }
+
+
+/* =========================
+   LEFT PROBLEM PANEL
+========================= */
+
+.problem-content {
+    flex: 0 0 38%;
+
+    height: calc(100vh - 16px);
+
+    overflow-y: auto;
+
+    padding: 24px;
+
+    box-sizing: border-box;
+
+    background: #262626;
+
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+
+    color: #eeeeee;
+}
+
+
+/* Scrollbar */
+
+.problem-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.problem-content::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+
+/* =========================
+   PROBLEM TEXT
+========================= */
+
 .problem-detail h1 {
-    margin-bottom: 10px;
+    margin: 0 0 12px;
+
+    font-size: 26px;
+    color: #ffffff;
 }
+
 .problem-detail h2 {
-    margin-top: 30px;
-    margin-bottom: 10px;
+    margin-top: 28px;
+    margin-bottom: 14px;
+
+    font-size: 20px;
+
+    color: #ffffff;
 }
+
+.problem-detail p {
+    line-height: 1.6;
+}
+
+
+/* =========================
+   EXAMPLES
+========================= */
+
 .example {
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    padding: 16px;
+
+    margin-bottom: 14px;
+
+    border: 1px solid #444;
+    border-radius: 8px;
+
+    background: #202020;
 }
+
+.example h3 {
+    margin-top: 0;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   RIGHT CODE SECTION
+========================= */
+
+.code-section {
+    flex: 1;
+
+    height: calc(100vh - 16px);
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #1e1e1e;
+
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   EDITOR HEADER
+========================= */
+
 .editor-header {
-    padding: 12px 16px;
-    border-bottom: 1px solid #ddd;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 16px;
+
+    box-sizing: border-box;
+
+    background: #252525;
+
+    border-bottom: 1px solid #3a3a3a;
+
+    font-size: 14px;
+    font-weight: 500;
 }
+
+
+/* =========================
+   CODE AREA
+========================= */
+
 .code-area {
     display: flex;
+
+    flex: 1;
+
     width: 100%;
+
+    min-height: 0;
+
     text-align: left;
+
+    background: #1e1e1e;
 }
+
+
+/* =========================
+   LINE NUMBERS
+========================= */
+
 .line-numbers {
-    width: 40px;
+    width: 50px;
+
     flex-shrink: 0;
 
     padding-top: 12px;
-    padding-right: 10px;
+    padding-right: 12px;
+
+    box-sizing: border-box;
 
     text-align: right;
 
     font-family: monospace;
     font-size: 14px;
+
     line-height: 1.6;
+
+    color: #777;
+
+    background: #1e1e1e;
 }
 
-/* TEXTAREA */
+
+/* =========================
+   TEXTAREA
+========================= */
+
 .code-area textarea {
     flex: 1;
+
     width: 0;
-    min-height: 450px;
+    height: 100%;
 
     padding: 12px;
 
-    font-family: monospace;
+    box-sizing: border-box;
+
+    font-family: Consolas, monospace;
     font-size: 14px;
+
     line-height: 1.6;
+
+    color: #d4d4d4;
+
+    background: #1e1e1e;
 
     border: none;
     outline: none;
+
     resize: none;
 
-    box-sizing: border-box;
+    tab-size: 4;
 }
 
-/* BUTTONS */
+
+/* =========================
+   BUTTON AREA
+========================= */
+
 .editor-actions {
     display: flex;
+
     justify-content: flex-end;
     align-items: center;
+
     gap: 10px;
-    padding: 12px 0;
+
+    padding: 10px 14px;
+
+    background: #252525;
+
+    border-top: 1px solid #3a3a3a;
 }
+
+
+/* =========================
+   BUTTONS
+========================= */
+
 .editor-actions button {
     padding: 8px 18px;
-    border: 1px solid #ddd;
+
+    border: 1px solid #555;
+
     border-radius: 6px;
+
+    background: #333;
+
+    color: #ffffff;
+
     cursor: pointer;
-}
-.input-section {
-    margin-top: 15px;
-}
-.input-section textarea {
-    width: 100%;
-    min-height: 80px;
-    padding: 10px;
-    box-sizing: border-box;
-    resize: vertical;
-}
-.input-section {
-    margin-top: 20px;
+
+    font-size: 14px;
+
+    transition: 0.2s;
 }
 
-.input-section h3,
-.status-section h3,
-.output-section h3 {
-    margin-bottom: 8px;
+.editor-actions button:hover {
+    background: #444;
 }
 
-.input-section textarea {
-    width: 100%;
-    min-height: 80px;
-    padding: 10px;
-    box-sizing: border-box;
-    resize: vertical;
-}
+
+/* =========================
+   STATUS
+========================= */
 
 .status-section {
-    margin-top: 15px;
+    padding: 12px 16px;
+
+    background: #202020;
+
+    border-top: 1px solid #3a3a3a;
 }
 
+.status-section h3 {
+    margin: 0;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   OUTPUT
+========================= */
+
 .output-section {
-    margin-top: 15px;
+    margin: 10px;
+
     padding: 12px;
-    border: 1px solid #ddd;
+
+    border: 1px solid #444;
+
     border-radius: 6px;
+
+    background: #181818;
+}
+
+.output-section h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
 .output-section pre {
     margin: 0;
-    font-family: monospace;
+
+    font-family: Consolas, monospace;
+
+    white-space: pre-wrap;
+
+    color: #d4d4d4;
 }
+.results-section {
+    flex-shrink: 0;
+
+    max-height: 260px;
+
+    background: #1e1e1e;
+
+    border-top: 1px solid #3a3a3a;
+
+    overflow-y: auto;
+}
+
+.results-header {
+    padding: 12px 16px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    background: #252525;
+
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.results-list {
+    padding: 10px;
+}
+
+.result-item {
+    padding: 10px 14px;
+
+    margin-bottom: 8px;
+
+    border-radius: 6px;
+
+    background: #252525;
+
+    border: 1px solid #3a3a3a;
+}
+
+.result-item h3 {
+    margin: 0 0 8px;
+
+    font-size: 14px;
+}
+
+.result-item p {
+    margin: 4px 0;
+
+    font-size: 13px;
+}
+
+.result-item.passed {
+    border-left: 3px solid #22c55e;
+}
+
+.result-item.failed {
+    border-left: 3px solid #ef4444;
+}
+.results-header {
+    display: flex;
+
+    height: 45px;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 0 16px;
+
+    background: #252525;
+
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.results-header button {
+    height: 100%;
+    padding: 0 4px;
+    border: none;
+    background: transparent;
+    color: #999;
+    cursor: pointer;
+    font-size: 14px;
+}
+.results-header button:hover {
+    color: #fff;
+}
+
